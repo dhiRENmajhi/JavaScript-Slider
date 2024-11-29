@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+}
+
+.slidecontainer{
+    width: 1000px;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    border: 1px solid red;
+}
+#leftarrow, #rightarrow{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: 5px;
+    border: 2px solid rgb(255, 196, 196);
+    border-radius: 25px;
+    transition: all 0.1s;
+}
+#leftarrow svg, #rightarrow svg{
+    width: 30px;
+    height: 30px;
+    fill: rgb(255, 196, 196);
+    transition: all 0.1s;
+}
+#leftarrow:not(.nonclickable), #rightarrow:not(.nonclickable){
+    border: 2px solid red;
+    cursor: pointer;
+}
+#leftarrow:not(.nonclickable) svg, #rightarrow:not(.nonclickable) svg{
+    fill: red;
+}
+#leftarrow:not(.nonclickable):hover, #rightarrow:not(.nonclickable):hover{
+    background-color: red;
+}
+#leftarrow:not(.nonclickable):hover svg, #rightarrow:not(.nonclickable):hover svg{
+    fill: white
+}
+
+.slidecontainer .slidecards{
+    width: calc(100% - 100px);
+    height: var(--height);
+    display: flex;
+    gap: 10px;
+    mask-image: linear-gradient(to right,transparent, black 0% 90%, transparent);
+    position: relative;
+    overflow: hidden;
+    transition: all 1s;
+}
+
+.slidecontainer .slidecards .cards{
+    position: absolute;
+    width: var(--width);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 1s;
+}
+.slidecontainer .slidecards .cards:hover h1{
+    color: black;
+}
+.cards h1{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 1rem;
+}
